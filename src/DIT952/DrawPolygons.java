@@ -15,59 +15,56 @@ import java.util.*;
 
 public class DrawPolygons extends JComponent {
     public ArrayList<IPolygon> polygons;
-    public boolean direction = true;
-    public int ticker = 0;
+//    public boolean direction = true;
+//    public int ticker = 0;
     public JFrame frame;
 
-    public DrawPolygons() {
-        polygons = new ArrayList<>(10);
+//    public DrawPolygons() {
+//        polygons = new ArrayList<>(10);
+//
+//        polygons.add(PolygonFactory.createSquare(50, 50));
+//        polygons.add(PolygonFactory.createTriangle(100, 100));
+//        polygons.add(PolygonFactory.createRectangle(50, 150));
+//
+//    }//constructor
 
-        polygons.add(PolygonFactory.createSquare(50, 50));
-        polygons.add(PolygonFactory.createTriangle(100, 100));
-        polygons.add(PolygonFactory.createRectangle(50, 150));
+//    public void update() {
+//        ticker++;
+//        int value = direction ? 10 : -10;
+//        for (IPolygon p : polygons) {
+//            p.updateCenter(p.getCenter().x + value, p.getCenter().y + value);
+//        }
+//        if (ticker > 10) {
+//            direction = !direction;
+//            ticker = 0;
+//        }
+//        repaint();
+//    }
 
-    }//constructor
-
-    public void update() {
-        ticker++;
-        int value = direction ? 10 : -10;
-        for (IPolygon p : polygons) {
-            p.updateCenter(p.getCenter().x + value, p.getCenter().y + value);
-        }
-        if (ticker > 10) {
-            direction = !direction;
-            ticker = 0;
-        }
-        repaint();
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        for (IPolygon currentPolygon : polygons) {
-            currentPolygon.paint(g);
-        }
-    }//paint
+//    @Override
+//    public void paint(Graphics g) {
+//        for (IPolygon currentPolygon : polygons) {
+//            currentPolygon.paint(g);
+//        }
+//    }//paint
 
     public static void main(String[] args) {
-     
+//    	JFrame frame = new JFrame();
         PolygonModel polygons = new PolygonModel();
         PolygonViewer view = new PolygonViewer();
         PolygonController controller = new PolygonController(polygons, view);
+        controller.initiateView();
+
+//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        frame.setBounds(30, 30, 300, 300);
+//        frame.getContentPane().add(polygons);
+        controller.animate();
+//        frame.setVisible(true);
 
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setBounds(30, 30, 300, 300);
-        frame.getContentPane().add(polygons);
-        frame.setVisible(true);
 
-
-        try {
-            while (true) {
-                Thread.sleep(500);
-                polygons.update();
-            }
-        } catch (InterruptedException e) {
-        }
 
     }//main
+
+	
 }

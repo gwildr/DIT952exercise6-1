@@ -3,12 +3,16 @@ package DIT952;
 import DIT952.adapter.IPolygon;
 import DIT952.adapter.PolygonFactory;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JComponent;
 
 /**
  * Created by asam82 on 2016-02-22.
  */
-public class PolygonModel {
+public class PolygonModel extends JComponent implements Iterable<IPolygon>{
     public ArrayList<IPolygon> polygons;
 
     public PolygonModel(){
@@ -19,4 +23,18 @@ public class PolygonModel {
         polygons.add(PolygonFactory.createRectangle(50,150));
 
     }//constructor
+
+	@Override
+	public Iterator<IPolygon> iterator() {
+		// TODO Auto-generated method stub
+		return polygons.iterator();
+	}
+	
+    @Override
+    public void paint(Graphics g) {
+        for (IPolygon currentPolygon : polygons) {
+            currentPolygon.paint(g);
+        }
+    }//paint
+    
 }
