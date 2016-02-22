@@ -5,15 +5,15 @@ import javax.swing.*;
 /**
  * Created by asam82 on 2016-02-22.
  */
-public class PolygonViewer extends JComponent{
-    PolygonViewer() {
-        JFrame frame = new JFrame();
+public class PolygonViewer extends JFrame{
+    public PolygonViewer() {//constructor
+    }
 
-        polygons.frame = frame;
+    public void setupViewFrame (){
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setBounds(30, 30, 300, 300);
-        frame.getContentPane().add(polygons);
-        frame.setVisible(true);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setBounds(30, 30, 300, 300);
+//            this.getContentPane().add(polygons);
+        this.setVisible(true);
     }
 }
