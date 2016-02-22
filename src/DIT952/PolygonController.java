@@ -48,5 +48,9 @@ public class PolygonController {
     private void updateView(){
     	view.repaint();
     }
+    public void startProgram(){
+        initiateView();
+        animate();
+    }
 
 }
